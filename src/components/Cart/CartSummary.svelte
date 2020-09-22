@@ -40,5 +40,5 @@
     <li class="empty" transition:slide={slideParams}>
       <span>Your cart is empty =(</span>
     </li>
-  {:else}<button>Go to checkout</button>{/if}
+  {/if}
 </ul>

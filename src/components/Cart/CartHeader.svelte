@@ -48,8 +48,10 @@
     color: #ffffffe6;
     background-color: #333333e6;
     position: absolute;
-    top: 41px;
+    top: 40px;
+    right: 0;
     width: 100%;
+    max-width: 600px;
     z-index: 11;
     box-shadow: 0px 2px 2px #999;
   }

@@ -48,7 +48,7 @@
     grid-template-areas:
       "name price"
       "brand price";
-    margin-bottom: 0.5em 0;
+    margin: 0.5em 0;
   }
 
   h3 {
@@ -69,8 +69,8 @@
   }
 
   .cart {
-    height: 33px;
-    max-height: 33px;
+    height: 38px;
+    max-height: 38px;
     overflow: hidden;
     border-top: 1px solid #000;
     padding-top: 0.5em;

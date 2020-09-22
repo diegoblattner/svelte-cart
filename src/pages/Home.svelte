@@ -8,10 +8,11 @@
   import { products, loadProducts } from "../stores/products";
   import { cart, addToCart } from "../stores/cart";
   import { Routes } from "../routes";
-  import About from "./About.svelte";
 
   onMount(() => {
-    loadProducts(mockProducts);
+    if (!$products || !$products.length) {
+      loadProducts(mockProducts);
+    }
   });
 </script>
 

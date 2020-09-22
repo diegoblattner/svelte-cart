@@ -10,6 +10,10 @@
 </script>
 
 <style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
   :global(html),
   :global(body) {
     margin: 0;
