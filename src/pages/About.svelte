@@ -43,7 +43,7 @@
 
 <main>
   <div>
-    <h1>Hello!</h1>
+    <h1>Hello! 👋</h1>
     <p class="info">
       This is a demo site, it has no purpose other than educational.
     </p>

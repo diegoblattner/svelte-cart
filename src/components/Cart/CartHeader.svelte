@@ -2,6 +2,7 @@
   import { slide } from "svelte/transition";
   import CartTotal from "./CartTotal.svelte";
   import CartSummary from "./CartSummary.svelte";
+  import LightBulb from "../../ui/Icons/LightBulb.svelte";
 
   let showSummary = false;
   type Themes = "light" | "dark";
@@ -70,6 +71,13 @@
     margin: 0;
     padding: 0.5em 1.5em;
     background-color: transparent;
+    font-size: 1.1rem;
+  }
+  .theme.light {
+    color: #ffd000;
+  }
+  .theme.dark {
+    color: var(--border-color-header);
   }
 </style>
 
@@ -77,7 +85,8 @@
   <div class="children">
     <slot />
   </div>
-  <button class="theme" on:click={toogleTheme}>{theme === 'light' ? '🌘' : '🌞'}
+  <button class={`theme ${theme}`} class:theme on:click={toogleTheme}>
+    <LightBulb on={theme === 'light'} />
   </button>
   <button
     class="cartBtn"
