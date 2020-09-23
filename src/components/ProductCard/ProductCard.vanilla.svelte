@@ -21,7 +21,10 @@
     font-size: 1em;
     flex-grow: 1;
   }
-  @media (min-width: 640px) {
+  @media (max-width: 500px) {
+    .card {
+      width: 100%;
+    }
   }
 
   @media (min-width: 640px) {
@@ -60,7 +63,7 @@
   }
   .brand {
     grid-area: brand;
-    color: #666666;
+    color: var(--font-color-details);
   }
   .price {
     grid-area: price;
@@ -69,10 +72,11 @@
   }
 
   .cart {
+    --btn-size: 27px;
     height: 38px;
     max-height: 38px;
     overflow: hidden;
-    border-top: 1px solid #000;
+    border-top: 1px solid var(--font-color-main);
     padding-top: 0.5em;
   }
 
@@ -87,26 +91,33 @@
     margin: 0.2em auto;
     padding: 0;
     text-decoration: underline;
+    color: var(--font-color-main);
   }
 
   .qtyBtn {
+    display: inline-block;
+    width: var(--btn-size);
+    height: var(--btn-size);
     margin: 0;
     padding: 0.25em 0.5em;
-    border: 1px solid #c9c9c9;
+    border: 1px solid var(--grey3);
     border-radius: 2px;
-    background: #f4f4f4;
+    background-color: var(--grey4);
+    color: var(--font-color-main);
   }
 
   .qty {
     display: inline-block;
-    min-width: 20px;
+    min-width: var(--btn-size);
     text-align: center;
+    vertical-align: middle;
   }
 
   .total {
     float: right;
     font-weight: 500;
     font-size: 1.2em;
+    line-height: var(--btn-size);
   }
 </style>
 

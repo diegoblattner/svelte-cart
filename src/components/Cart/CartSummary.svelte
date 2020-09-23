@@ -1,6 +1,5 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
-  import CartTotal from "./CartTotal.svelte";
   import { cartItems } from "../../stores/cart";
 
   const slideParams: Parameters<typeof slide>[1] = {

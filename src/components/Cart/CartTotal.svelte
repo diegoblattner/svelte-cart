@@ -4,7 +4,5 @@
   import { moneyFormat } from "../../stores/currency";
 </script>
 
-<span>
-  <ShoppingCart />
-  {$moneyFormat($cartTotal)}
-</span>
+<ShoppingCart />
+{$moneyFormat($cartTotal)}

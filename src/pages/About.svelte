@@ -1,8 +1,15 @@
+<script>
+  import { Routes } from "../routes";
+
+  import Link from "../ui/Link/Link.svelte";
+</script>
+
 <style>
   main {
     width: 100vw;
     height: 100vh;
-    background: rgb(224 239 241);
+    /* background: rgb(224 239 241); */
+    background-color: var(--grey4);
     padding: 5em 0 0;
     line-height: 1.6em;
   }
@@ -12,11 +19,12 @@
     padding: 1em 1.25em;
     border-radius: 10px;
     box-shadow: 0 2px 5px 0px rgb(71, 91, 129);
-    background: white;
+    background: var(--bg-color-main);
   }
 
   .info {
-    background: #def4ff;
+    background: var(--grey2);
+    color: var(--white);
     width: calc(100% + 2.5em);
     margin: 0 -1.25em 0.5em;
     padding: 1em 1.25em;
@@ -26,6 +34,10 @@
     margin: 3em 0 2em;
     text-align: center;
     font-size: 1.5em;
+  }
+
+  a {
+    color: var(--primary-color);
   }
 </style>
 
@@ -50,6 +62,8 @@
     </p>
     <p>This site doesn't track you =)</p>
 
-    <p><a href="./">Back to home</a></p>
+    <p>
+      <Link href={Routes.Home}>Back to home</Link>
+    </p>
   </div>
 </main>

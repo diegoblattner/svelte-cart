@@ -3,7 +3,6 @@
   import { navigate } from "../../stores/navigation";
 
   export let href: Routes;
-  export let text: string;
   export let className: string | undefined;
 
   const onClick = (e: Event) => {
@@ -14,4 +13,11 @@
   };
 </script>
 
-<a {href} class={className} on:click={onClick}>{text}</a>
+<style>
+  a {
+    color: var(--primary-color);
+    padding: 0.8em 0.5em;
+  }
+</style>
+
+<a {href} class={className} on:click={onClick}><slot /></a>

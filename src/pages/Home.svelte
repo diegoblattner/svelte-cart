@@ -36,7 +36,7 @@
 
 <CartHeader>
   <nav>
-    <Link href={Routes.About} text="About" />
+    <Link href={Routes.About}>About</Link>
   </nav>
 </CartHeader>
 

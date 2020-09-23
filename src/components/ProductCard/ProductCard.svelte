@@ -83,7 +83,7 @@
   .left {
     height: 100%;
     width: 50%;
-    background: #f4f4f4;
+    background-color: var(--grey4);
     position: relative;
     float: left;
   }
