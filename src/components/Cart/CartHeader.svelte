@@ -4,9 +4,12 @@
   import CartSummary from "./CartSummary.svelte";
   import LightBulb from "../../ui/Icons/LightBulb.svelte";
 
-  let showSummary = false;
   type Themes = "light" | "dark";
-  let theme: Themes = "light";
+
+  let showSummary = false;
+  let theme: Themes =
+    (document.querySelector("html").getAttribute("data-theme") as Themes) ||
+    "light";
 
   const toogleTheme = () => {
     theme = theme === "light" ? "dark" : "light";

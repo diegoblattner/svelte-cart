@@ -15,7 +15,14 @@
 
     <script defer src="/build/bundle.js"></script>
   </head>
+  <script>
+    // prepares the document theme
+    const theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
 
+    document.querySelector("html").setAttribute("data-theme", theme);
+  </script>
   <body>
     <noscript>This site requires javascript to run</noscript>
   </body>
