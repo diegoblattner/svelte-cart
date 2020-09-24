@@ -4,7 +4,7 @@
   import { fly } from "svelte/transition";
   import { moneyFormat } from "../../stores/currency";
   import AddShoppingCart from "../../ui/Icons/AddShoppingCart.svelte";
-  import { onMount } from "svelte";
+  import { skipFirst } from "../../ui/utils";
 
   export let product: Product;
   export let addToCart: (id: string, product: Product, qty: number) => void;
@@ -17,13 +17,12 @@
   const y = 10;
 
   // animation logic
-  let isMounted = false;
-  onMount(() => (isMounted = true));
-  // const doFly = (...args: Parameters<typeof fly>) => isMounted && fly(...args);
+  // FIXME fixes broken types (remove when svelte exports correct tyopes)
   type NodeType = Parameters<typeof fly>[0];
-  type FlyParams = Partial<Parameters<typeof fly>[1]>; // fixes broken types
-  const doFly = (node: NodeType, params: FlyParams) =>
-    isMounted && fly(node, params as Parameters<typeof fly>[1]);
+  type FlyParams = Partial<Parameters<typeof fly>[1]>;
+  const doFly = skipFirst(
+    fly as (n: NodeType, p: FlyParams) => ReturnType<typeof fly>
+  );
 </script>
 
 <style>
