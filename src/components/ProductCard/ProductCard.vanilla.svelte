@@ -4,6 +4,7 @@
   import { fly } from "svelte/transition";
   import { moneyFormat } from "../../stores/currency";
   import AddShoppingCart from "../../ui/Icons/AddShoppingCart.svelte";
+  import { onMount } from "svelte";
 
   export let product: Product;
   export let addToCart: (id: string, product: Product, qty: number) => void;
@@ -14,23 +15,26 @@
   const duration = 200;
   const delay = duration;
   const y = 10;
+
+  // animation logic
+  let isMounted = false;
+  onMount(() => (isMounted = true));
+  // const doFly = (...args: Parameters<typeof fly>) => isMounted && fly(...args);
+  type NodeType = Parameters<typeof fly>[0];
+  type FlyParams = Partial<Parameters<typeof fly>[1]>; // fixes broken types
+  const doFly = (node: NodeType, params: FlyParams) =>
+    isMounted && fly(node, params as Parameters<typeof fly>[1]);
 </script>
 
 <style>
   .card {
+    min-width: 200px;
     font-size: 1em;
-    flex-grow: 1;
   }
+
   @media (max-width: 500px) {
     .card {
       width: 100%;
-    }
-  }
-
-  @media (min-width: 640px) {
-    .card {
-      width: 200px;
-      max-width: 232px;
     }
   }
 
@@ -87,11 +91,11 @@
   .addToCart {
     border: 0;
     background: 0;
-    line-height: 1.2em;
-    margin: 0.2em auto;
+    margin: 0;
     padding: 0;
     text-decoration: underline;
     color: var(--font-color-main);
+    font-size: 1.2em;
   }
 
   .qtyBtn {
@@ -137,7 +141,9 @@
   </div>
   <div class="cart">
     {#if qtyInCart > 0}
-      <div in:fly={{ y: -y, delay, duration }} out:fly={{ y: -y, duration }}>
+      <div
+        in:doFly={{ y: -y, delay, duration }}
+        out:doFly={{ y: -y, duration }}>
         <button
           class="qtyBtn"
           on:click={() => addToCart(product.id, product, -1)}>
@@ -149,8 +155,8 @@
       </div>
     {:else}
       <button
-        in:fly={{ y, delay, duration }}
-        out:fly={{ y, duration }}
+        in:doFly={{ y, delay, duration }}
+        out:doFly={{ y, duration }}
         class="addToCart"
         on:click={addOne}>
         Add to cart

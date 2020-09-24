@@ -10,16 +10,28 @@
 </script>
 
 <style>
+  ul {
+    line-height: 1em;
+  }
+
   li {
-    padding: 5px 10px;
+    display: flex;
+  }
+
+  li:last-child {
+    margin-bottom: 1.4em;
+  }
+
+  li {
+    margin: 1.4em 1em;
   }
 
   .desc {
-    float: left;
+    flex-grow: 1;
   }
 
   .price {
-    float: right;
+    flex-grow: 0;
   }
 
   .empty {
@@ -30,7 +42,7 @@
 
 <ul>
   {#each $cartItems as item (item.item.id)}
-    <li class="clearfix" transition:slide={slideParams}>
+    <li transition:slide={slideParams}>
       <span class="desc">{item.qty}x {item.item.name}</span>
       <span class="price">${item.total}</span>
     </li>

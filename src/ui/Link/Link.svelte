@@ -3,7 +3,7 @@
   import { navigate } from "../../stores/navigation";
 
   export let href: Routes;
-  export let className: string | undefined;
+  export let className: string;
 
   const onClick = (e: Event) => {
     e.stopPropagation();

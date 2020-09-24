@@ -4,8 +4,7 @@
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
 
-  let CurrentPage;
-
+  let CurrentPage: typeof Home;
   $: CurrentPage = $navigation === Routes.About ? About : Home;
 </script>
 

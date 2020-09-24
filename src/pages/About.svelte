@@ -8,7 +8,6 @@
   main {
     width: 100vw;
     height: 100vh;
-    /* background: rgb(224 239 241); */
     background-color: var(--grey4);
     padding: 5em 0 0;
     line-height: 1.6em;
